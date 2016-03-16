@@ -1,6 +1,6 @@
 # MyPassportWireless
 
-#requirements
+# requirements
 * build-essential
 * autoconf
 * gperf
@@ -9,6 +9,7 @@
 * makeinfo (texinfo)
 * libtool
 * libncurses5-dev
+* subversion
 
 ## bin
 Binaries build for the MyPassportWireless
