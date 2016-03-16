@@ -1,5 +1,15 @@
 # MyPassportWireless
 
+#requirements
+* build-essential
+* autoconf
+* gperf
+* bison
+* flex
+* makeinfo (texinfo)
+* libtool
+* libncurses5-dev
+
 ## bin
 Binaries build for the MyPassportWireless
 * busybox 1.25.0 (netcat, nc, chroot, pgrep, pkill, tar, watch)
