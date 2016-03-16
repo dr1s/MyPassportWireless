@@ -1,9 +1,10 @@
 MyPassportWireless
 ==================
-This repository will contain all the work I did for Wester Digitals MyPassport Wireless.
-This includes a script to build the xcompiler, the toolchain and the build binaries.
 
-## requirements for building a crosscompiler toolchain
+This repository will contain all the work I did for Western Digital's MyPassport Wireless.
+This includes a script to build the toolchain and the built binaries.
+
+## requirements for building the crosscompiler toolchain
 
 * build-essential
 * autoconf
@@ -17,11 +18,10 @@ This includes a script to build the xcompiler, the toolchain and the build binar
 
 ## bin
 
-Binaries build for the MyPassportWireless
-* busybox 1.25.0 (netcat, nc, chroot, pgrep, pkill, tar, watch)
+Binaries built for the MyPassport Wireless
+* busybox 1.25.0
 * bash 4.3.0
 
-## build-toolchain.sh
+## toolchain
 
-Script to download crosstool-ng and building a toolchain for cross compilinag.
-Tested on Debian Jessi.
+Crosscompiler toolchain to build binaries for the MyPassport Wirless.
