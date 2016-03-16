@@ -1,6 +1,7 @@
 # MyPassportWireless
 
-## requirements
+## requirements for building a crosscompiler toolchain
+
 * build-essential
 * autoconf
 * gperf
@@ -12,10 +13,12 @@
 * subversion
 
 ## bin
+
 Binaries build for the MyPassportWireless
 * busybox 1.25.0 (netcat, nc, chroot, pgrep, pkill, tar, watch)
 * bash 4.3.0
 
 ## build-toolchain.sh
+
 Script to download crosstool-ng and building a toolchain for cross compilinag.
 Tested on Debian Jessi.
