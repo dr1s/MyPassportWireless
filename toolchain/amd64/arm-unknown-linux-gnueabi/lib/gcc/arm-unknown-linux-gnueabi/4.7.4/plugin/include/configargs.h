@@ -1,0 +1,7 @@
+/* Generated automatically. */
+static const char configuration_arguments[] = "/home/drs/ct/build/.build/src/gcc-linaro-4.7-2014.01/configure --build=x86_64-build_unknown-linux-gnu --host=x86_64-build_unknown-linux-gnu --target=arm-unknown-linux-gnueabi --prefix=/home/drs/ct/x-tools/arm-unknown-linux-gnueabi --with-sysroot=/home/drs/ct/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot --enable-languages=c --with-pkgversion='crosstool-NG 1.20.0 - linux3-1-10' --enable-__cxa_atexit --disable-libmudflap --disable-libgomp --disable-libssp --disable-libquadmath --disable-libquadmath-support --with-gmp=/home/drs/ct/build/.build/arm-unknown-linux-gnueabi/buildtools --with-mpfr=/home/drs/ct/build/.build/arm-unknown-linux-gnueabi/buildtools --with-mpc=/home/drs/ct/build/.build/arm-unknown-linux-gnueabi/buildtools --with-ppl=/home/drs/ct/build/.build/arm-unknown-linux-gnueabi/buildtools --with-cloog=/home/drs/ct/build/.build/arm-unknown-linux-gnueabi/buildtools --with-libelf=/home/drs/ct/build/.build/arm-unknown-linux-gnueabi/buildtools --with-host-libstdcxx='-static-libgcc -Wl,-Bstatic,-lstdc++,-Bdynamic -lm -L/home/drs/ct/build/.build/arm-unknown-linux-gnueabi/buildtools/lib -lpwl' --enable-threads=posix --enable-target-optspace --disable-nls --disable-multilib --with-local-prefix=/home/drs/ct/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot --enable-c99 --enable-long-long";
+static const char thread_model[] = "posix";
+
+static const struct {
+  const char *name, *value;
+} configure_default_options[] = { { "tls", "gnu" } };
