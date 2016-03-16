@@ -1,4 +1,7 @@
-# MyPassportWireless
+MyPassportWireless
+==================
+This repository will contain all the work I did for Wester Digitals MyPassport Wireless.
+This includes a script to build the xcompiler, the toolchain and the build binaries.
 
 ## requirements for building a crosscompiler toolchain
 
