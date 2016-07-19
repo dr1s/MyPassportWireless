@@ -6,5 +6,16 @@ Binaries build for the MyPassportWireless
 * bash 4.3.0
 
 ## build-toolchain.sh
-Script to download crosstool-ng and building a toolchain for cross compilinag.
+Script to download crosstool-ng and building a toolchain for cross compiling.
 Tested on Debian Jessi.
+
+## install-pip.py
+Installs pip on the MyPassportWireless
+* installs setuptools-24.0.3
+* installs pip-8.1.2
+* installs missing xml Python module from python 2.7.3
+
+### Getting started
+* copy install-pip.py to MPW
+* ssh -l root mypassport.local
+* `python install-pip.py`
