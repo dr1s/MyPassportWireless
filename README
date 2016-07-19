@@ -1,8 +1,25 @@
-# MyPassportWireless
+MyPassportWireless
+==================
+
+This repository will contain all the work I did for Western Digital's MyPassport Wireless.
+This includes a script to build the toolchain and the built binaries.
+
+## requirements for building the crosscompiler toolchain
+
+* build-essential
+* autoconf
+* gperf
+* bison
+* flex
+* makeinfo (texinfo)
+* libtool
+* libncurses5-dev
+* subversion
 
 ## bin
-Binaries build for the MyPassportWireless
-* busybox 1.25.0 (netcat, nc, chroot, pgrep, pkill, tar, watch)
+
+Binaries built for the MyPassport Wireless
+* busybox 1.25.0
 * bash 4.3.0
 
 ## build-toolchain.sh
