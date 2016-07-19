@@ -1,4 +1,18 @@
 #!/bin/bash
+function print_eglibc_patch {
+cat << EOF
+--- configure   2016-01-30 20:55:30.027234045 +0100
++++ configure.new       2016-01-30 20:54:55.977234045 +0100
+@@ -5246,7 +5246,7 @@
+   ac_prog_version=`$MAKE --version 2>&1 | sed -n 's/^.*GNU Make[^0-9]*\([0-9][0-9.]*\).*$/\1/p'`
+   case $ac_prog_version in
+     '') ac_prog_version="v. ?.??, bad"; ac_verc_fail=yes;;
+-    3.79* | 3.[89]*)
++    3.79* | 3.[89]* | 4*)
+        ac_prog_version="$ac_prog_version, ok"; ac_verc_fail=no;;
+     *) ac_prog_version="$ac_prog_version, bad"; ac_verc_fail=yes;;
+EOF
+}
 
 function print_tc_conf {
 
@@ -248,21 +262,39 @@ if [ ! -e "$DIR" ]; then
 fi
 
 if [ -n "$DIR" ]; then
-	echo "Downloading $CT_VERSION"
 	cd $DIR
-	wget -q http://crosstool-ng.org/download/crosstool-ng/$CT_VERSION.tar.bz2
-	tar xjf $CT_VERSION.tar.bz2
-	cd $CT_DIR
-	echo "Building $CT_VERSION"
-	./bootstrap >> $LOG
-	./configure --enable-local --with-libtool=/usr/share/libtool >> $LOG
-	make >> $LOG
-
+	if [ ! -d "$CT_VERSION" ]; then			
+		echo "Downloading $CT_VERSION"
+		wget -q http://crosstool-ng.org/download/crosstool-ng/$CT_VERSION.tar.bz2
+		tar xjf $CT_VERSION.tar.bz2
+	else
+		echo "$CT_VERSION found"
+	fi
+	if [ ! -f "$CT_DIR/ct-ng" ]; then
+		cd $CT_DIR
+		echo "Building $CT_VERSION"
+		./bootstrap >> $LOG
+		./configure --enable-local --with-libtool=/usr/share/libtool >> $LOG
+		make >> $LOG
+	else
+		echo "crosstool-ng binary found: $CT_DIR/ct-ng"
+	fi
 	echo "Building toolchain"
 	mkdir $CT_TC_BUILD_DIR
 	cd $CT_TC_BUILD_DIR
 	print_tc_conf > $CT_TC_BUILD_DIR/.config
 	$CT_DIR/ct-ng build
+	echo "$?"
+	if [ $? -gt 0 ]; then
+		echo "Patching eglibc"
+		patch="$CT_TC_BUILD_DIR/eglibc_make.patch"
+		print_eglibc_patch > $patch
+		cd $CT_TC_BUILD_DIR/.build/src/eglibc-2_15
+		patch -p1 -i $patch configure
+		cd $CT_TC_BUILD_DIR
+		$CT_DIR/ct-ng build
+	fi
+
 else
 	usage
 fi
